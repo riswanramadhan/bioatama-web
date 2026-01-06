@@ -16,15 +16,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: "BIO ATAMA - Rahasia Kesehatan Wanita Alami",
     description: "Solusi alami tanpa bahan kimia untuk kesehatan rahim dan keharmonisan keluarga.",
-    url: "https://bioatama.id", // Ganti dengan domain asli nanti
+    url: "https://bioatama.vercel.app", 
     siteName: "Bio Atama Official",
     locale: "id_ID",
     type: "website",
   },
   verification: {
-    google: "kode-verifikasi-google-anda", // Diisi nanti saat deploy
+    google: "xMYzBHOvyktvEQhprsMYHl38Ea3GPcIkShFYaXj3RKo", // google console verification
   }
 };
+
 
 export default function RootLayout({
   children,
