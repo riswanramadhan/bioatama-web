@@ -20,14 +20,14 @@ export default function SupportedBy() {
           <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
             {t.collaboration.title}
           </h3>
-          <p className="text-gray-500 text-sm md:text-base max-w-3xl mx-auto leading-relaxed mb-14">
+          <p className="text-gray-500 text-sm md:text-base max-w-3xl mx-auto leading-relaxed mb-8">
             {t.collaboration.desc}
           </p>
         </div>
 
         {/* LOGO SECTION - UKURAN JUMBO */}
         <div 
-          className="flex flex-wrap justify-center items-center gap-10 md:gap-20"
+          className="flex flex-wrap justify-center items-center gap-8 md:gap-24"
           data-aos="fade-up" 
           data-aos-delay="100"
         >
@@ -36,7 +36,7 @@ export default function SupportedBy() {
               key={index} 
               // UPDATE: w-52 (Mobile) & w-80 (Desktop) -> Sangat Besar
               // h-28 agar logo punya ruang vertikal yang cukup
-              className="relative w-52 md:w-80 h-28 flex items-center justify-center grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="relative w-52 md:w-64 h-28 md:h-44 flex items-center justify-center grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
               <Image 
                 src={partner.src} 
