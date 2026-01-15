@@ -23,27 +23,50 @@ export default function AboutAndProducts() {
       </section>
 
       {/* SECTION KHASIAT */}
-      <section className="py-16 bg-natural-light/30">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-             <div data-aos="fade-right">
-                <h3 className="text-2xl font-bold mb-6 text-gray-800">{t.about.benefits_title}</h3>
-                <div className="grid gap-4">
-                  {/* Mapping benefits dari file translation */}
-                  {t.about.benefits.map((item, i) => (
-                    <div key={i} className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
-                      <CheckCircle2 className="text-natural shrink-0" />
-                      <span className="font-medium text-gray-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
-             </div>
-             <div className="relative h-96 rounded-2xl overflow-hidden shadow-lg" data-aos="zoom-in">
-                <Image src="/images/product-section.jpg" alt="Detail Bio Atama" fill className="object-cover" />
-             </div>
-          </div>
+<section className="py-16 bg-natural-light/30">
+  <div className="container mx-auto px-4">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <h3 className="text-2xl font-bold mb-6 text-gray-800">
+          {t.about.benefits_title}
+        </h3>
+        <div className="grid gap-4">
+          {/* Mapping benefits dari file translation */}
+          {t.about.benefits.map((item, i) => (
+            <div
+              key={i}
+              className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+            >
+              <CheckCircle2 className="text-natural shrink-0" />
+              <span className="font-medium text-gray-700">{item}</span>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
+
+      <div className="grid gap-6" data-aos="zoom-in">
+        <div className="relative h-96 rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/product-section.jpg"
+            alt="Detail Bio Atama"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+        <div className="relative h-96 rounded-2xl overflow-hidden shadow-lg">
+          <Image
+            src="/images/tambahan-foto-manfaat.jpg"
+            alt="Manfaat Bio Atama"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* SECTION PRODUK */}
       <section id="products" className="py-24 bg-white">
