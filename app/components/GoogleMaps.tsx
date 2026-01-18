@@ -11,13 +11,13 @@ export default function GoogleMaps() {
         {/* Header */}
         <div className="text-center mb-16" data-aos="fade-up">
           <span className="text-primary font-bold tracking-wider uppercase text-sm">
-            Lokasi
+            {t.googlemaps.tag}
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
-            Kunjungi Kami
+            {t.googlemaps.title}
           </h2>
           <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
-            Temukan lokasi kami di peta dan kunjungi fasilitas kami
+            {t.googlemaps.subtitle}
           </p>
         </div>
 

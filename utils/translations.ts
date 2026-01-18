@@ -92,6 +92,11 @@ export const translations = {
         },
       ],
     },
+    googlemaps: {
+      tag: "Lokasi",
+      title: "Kunjungi Kami",
+      subtitle: "Temukan lokasi kami di peta dan kunjungi fasilitas kami",
+    },
     footer: {
       faq_title: "Pertanyaan Umum",
       cta_title: "Saatnya Beralih ke Solusi Alami",
@@ -202,6 +207,11 @@ export const translations = {
             "My husband says I'm different, fresher, and my mood is better. Turns out womb health affects emotions significantly. Thank you Bio Atama!",
         },
       ],
+    },
+    googlemaps: {
+      tag: "Location",
+      title: "Visit Us",
+      subtitle: "Find our location on the map and visit our facility",
     },
     footer: {
       faq_title: "Frequently Asked Questions",
