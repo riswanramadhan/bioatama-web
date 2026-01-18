@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useState } from "react";
 
 const testimonialImages = [
   "/images/testi/testi1.jpg",
@@ -18,6 +19,8 @@ const testimonialImages = [
 
 export default function Testimonials() {
   const { t } = useLanguage();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
 
   return (
     <section
@@ -80,16 +83,17 @@ export default function Testimonials() {
           ))}
         </div>
 
-        {/* === GRID IMAGE TESTIMONI (TIDAK DIUBAH) === */}
+        {/* === GRID IMAGE TESTIMONI === */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
           {testimonialImages.map((src, index) => (
             <div
               key={index}
-              className="mx-auto w-full max-w-xs rounded-2xl bg-white p-3 shadow-lg hover:scale-[1.02] transition-transform duration-300"
+              className="mx-auto w-full max-w-xs rounded-2xl bg-white p-3 shadow-lg hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+              onClick={() => setSelectedImage(src)}
               data-aos="fade-up"
               data-aos-delay={index * 80}
             >
-              <div className="flex items-center justify-center h-[420px] rounded-xl bg-gradient-to-b from-gray-50 via-white to-gray-50 shadow-inner">
+              <div className="flex items-center justify-center h-[420px] rounded-xl bg-gradient-to-b from-gray-50 via-white to-gray-50 shadow-inner overflow-hidden">
                 <Image
                   src={src}
                   alt={`Testimoni ${index + 1}`}
@@ -102,7 +106,47 @@ export default function Testimonials() {
           ))}
         </div>
 
-      </div>
+        {/* === MODAL IMAGE VIEWER === */}
+        {selectedImage && (
+          <div 
+            className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div 
+              className="relative bg-white rounded-2xl shadow-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 z-10 p-2 bg-white rounded-full shadow-lg hover:bg-gray-100 transition-colors"
+                aria-label="Close image"
+              >
+                <X className="w-6 h-6 text-gray-800" />
+              </button>
+
+              {/* Image Container - Adjusts to image size */}
+              <div className="relative">
+                <Image
+                  src={selectedImage}
+                  alt="Testimoni modal"
+                  width={800}
+                  height={1000}
+                  priority
+                  className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
+                  onLoadingComplete={(result) => {
+                    setImageDimensions({
+                      width: result.naturalWidth,
+                      height: result.naturalHeight,
+                    });
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+            </div>
+      
     </section>
   );
 }
