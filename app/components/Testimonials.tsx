@@ -84,22 +84,22 @@ export default function Testimonials() {
         </div>
 
         {/* === GRID IMAGE TESTIMONI === */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10">
           {testimonialImages.map((src, index) => (
             <div
               key={index}
-              className="mx-auto w-full max-w-xs rounded-2xl bg-white p-3 shadow-lg hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
+              className="w-full rounded-2xl bg-white p-2 md:p-3 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer"
               onClick={() => setSelectedImage(src)}
               data-aos="fade-up"
               data-aos-delay={index * 80}
             >
-              <div className="flex items-center justify-center h-[420px] rounded-xl bg-gradient-to-b from-gray-50 via-white to-gray-50 shadow-inner overflow-hidden">
+              <div className="flex items-center justify-center w-full rounded-xl bg-gradient-to-b from-gray-50 via-white to-gray-50 shadow-inner overflow-hidden aspect-[3/4]">
                 <Image
                   src={src}
                   alt={`Testimoni ${index + 1}`}
                   width={600}
                   height={800}
-                  className="max-h-full w-auto object-contain rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
               </div>
             </div>
