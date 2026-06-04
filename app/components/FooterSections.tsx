@@ -272,7 +272,15 @@ export default function FooterSection() {
 
         <div className="container mx-auto px-4 mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-500">
           &copy; {new Date().getFullYear()} BIO ATAMA. All rights reserved |{" "}
-          {t.footer.copyright}
+          Powered by{" "}
+          <a
+            href="https://dekatlokal.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-primary hover:text-natural transition-colors"
+          >
+            DekatLokal
+          </a>
         </div>
       </div>
     </footer>
