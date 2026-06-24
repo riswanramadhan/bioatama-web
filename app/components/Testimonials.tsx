@@ -20,7 +20,6 @@ const testimonialImages = [
 export default function Testimonials() {
   const { t } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [imageDimensions, setImageDimensions] = useState({ width: 0, height: 0 });
 
   return (
     <section
@@ -62,7 +61,7 @@ export default function Testimonials() {
 
               {/* Review */}
               <p className="text-gray-600 mb-6 leading-relaxed italic">
-                "{review.text}"
+                &ldquo;{review.text}&rdquo;
               </p>
 
               {/* User */}
@@ -90,15 +89,24 @@ export default function Testimonials() {
               key={index}
               className="w-full rounded-2xl bg-white p-2 md:p-3 shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all duration-300 cursor-pointer"
               onClick={() => setSelectedImage(src)}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  setSelectedImage(src);
+                }
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`Buka gambar testimoni pelanggan BIO ATAMA ${index + 1}`}
               data-aos="fade-up"
               data-aos-delay={index * 80}
             >
               <div className="flex items-center justify-center w-full rounded-xl bg-gradient-to-b from-gray-50 via-white to-gray-50 shadow-inner overflow-hidden aspect-[3/4]">
                 <Image
                   src={src}
-                  alt={`Testimoni ${index + 1}`}
+                  alt={`Testimoni pelanggan BIO ATAMA ${index + 1}`}
                   width={600}
                   height={800}
+                  sizes="(max-width: 767px) 50vw, 33vw"
                   className="w-full h-full object-cover rounded-lg"
                 />
               </div>
@@ -129,17 +137,11 @@ export default function Testimonials() {
               <div className="relative">
                 <Image
                   src={selectedImage}
-                  alt="Testimoni modal"
+                  alt={`Testimoni pelanggan BIO ATAMA ${testimonialImages.indexOf(selectedImage) + 1}`}
                   width={800}
                   height={1000}
-                  priority
+                  sizes="90vw"
                   className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
-                  onLoadingComplete={(result) => {
-                    setImageDimensions({
-                      width: result.naturalWidth,
-                      height: result.naturalHeight,
-                    });
-                  }}
                 />
               </div>
             </div>

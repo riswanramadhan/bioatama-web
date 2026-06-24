@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext"; // Import Hook
+import { generalWhatsAppUrl } from "@/utils/whatsapp";
 
 export default function Navbar() {
   const { t, language, toggleLanguage } = useLanguage(); // Gunakan Hook
@@ -34,8 +35,8 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/images/logo.jpg" alt="Logo BIO ATAMA" width={50} height={50} className="rounded-full object-cover" />
+        <Link href="/" aria-label="Beranda BIO ATAMA" className="flex items-center gap-2">
+          <Image src="/images/logo.jpg" alt="Logo BIO ATAMA produk herbal alami karang laut" width={50} height={50} className="rounded-full object-cover" />
           <span className="font-bold text-xl text-primary-hover tracking-tight hidden sm:block">BIO ATAMA</span>
         </Link>
 
@@ -60,7 +61,7 @@ export default function Navbar() {
             </button>
             {/* --------------------------- */}
 
-            <Link href="https://wa.me/6285342867522" className="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-hover shadow-lg shadow-primary/30 transform hover:scale-105 transition-all">
+            <Link href={generalWhatsAppUrl} aria-label="Hubungi BIO ATAMA melalui WhatsApp" className="bg-primary text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-hover shadow-lg shadow-primary/30 transform hover:scale-105 transition-all">
               {t.nav.cta}
             </Link>
           </div>
@@ -74,7 +75,7 @@ export default function Navbar() {
             </button>
             
             {/* Burger Menu Button */}
-            <button className="text-gray-700" onClick={() => setIsOpen(!isOpen)} aria-label="Menu">
+            <button className="text-gray-700" onClick={() => setIsOpen(!isOpen)} aria-label="Buka atau tutup menu navigasi" aria-expanded={isOpen} aria-controls="mobile-navigation">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
         </div>
@@ -82,7 +83,8 @@ export default function Navbar() {
       
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div 
+        <div
+          id="mobile-navigation"
           className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 p-4 flex flex-col gap-4"
           // Tambahkan animasi fade down untuk menu mobile
           data-aos="fade-down"
@@ -98,7 +100,7 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link href="https://wa.me/6285342867522" className="w-full text-center bg-primary text-white py-3 rounded-xl font-bold mt-2 shadow-md">
+          <Link href={generalWhatsAppUrl} aria-label="Hubungi BIO ATAMA melalui WhatsApp" className="w-full text-center bg-primary text-white py-3 rounded-xl font-bold mt-2 shadow-md">
             {t.nav.cta}
           </Link>
         </div>

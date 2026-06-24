@@ -42,9 +42,10 @@ export default function Hero() {
           <div className="relative z-10 w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
             <Image 
               src="/images/hero-product.jpg" 
-              alt="Produk Bio Atama" 
+              alt="Produk BIO ATAMA herbal alami berbahan karang laut dalam kemasan ungu dan hijau"
               fill 
               className="object-cover"
+              sizes="(max-width: 767px) 100vw, 50vw"
               priority
             />
           </div>

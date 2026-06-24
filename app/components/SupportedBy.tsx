@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function SupportedBy() {
   const { t } = useLanguage();
 
   const partners = [
-    { name: "Dekat Lokal", src: "/images/partners/dekat-lokal.png" },
+    { name: "DekatLokal", src: "/images/partners/dekat-lokal.png", href: "https://dekatlokal.com/" },
     { name: "Rumah BUMN Makassar", src: "/images/partners/rumah-bumn.png" },
     { name: "Bank BRI", src: "/images/partners/bank-bri.png" },
   ];
@@ -17,9 +18,9 @@ export default function SupportedBy() {
       <div className="container mx-auto px-4 text-center">
         
         <div data-aos="fade-up">
-          <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
             {t.collaboration.title}
-          </h3>
+          </h2>
           <p className="text-gray-500 text-sm md:text-base max-w-3xl mx-auto leading-relaxed mb-8">
             {t.collaboration.desc}
           </p>
@@ -38,13 +39,13 @@ export default function SupportedBy() {
               // h-28 agar logo punya ruang vertikal yang cukup
               className="relative w-52 md:w-64 h-28 md:h-44 flex items-center justify-center grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
-              <Image 
-                src={partner.src} 
-                alt={partner.name} 
-                fill 
-                className="object-contain" // Gambar akan mengisi penuh kotak w-80 tanpa terpotong
-                sizes="(max-width: 768px) 200px, 320px"
-              />
+              {partner.href ? (
+                <Link href={partner.href} target="_blank" rel="noopener noreferrer" aria-label="Kunjungi website DekatLokal" className="relative block h-full w-full">
+                  <Image src={partner.src} alt="Logo DekatLokal partner digital BIO ATAMA" fill className="object-contain" sizes="(max-width: 768px) 200px, 320px" />
+                </Link>
+              ) : (
+                <Image src={partner.src} alt={`Logo ${partner.name} pendukung BIO ATAMA`} fill className="object-contain" sizes="(max-width: 768px) 200px, 320px" />
+              )}
             </div>
           ))}
         </div>

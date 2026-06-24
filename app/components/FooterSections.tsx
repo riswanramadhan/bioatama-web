@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useLanguage } from "@/context/LanguageContext";
+import { generalWhatsAppUrl } from "@/utils/whatsapp";
 
 export default function FooterSection() {
   const { t, language } = useLanguage();
@@ -154,7 +155,7 @@ export default function FooterSection() {
                 className="group bg-white rounded-xl shadow-sm p-4 [&_summary::-webkit-details-marker]:hidden"
               >
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900 font-bold">
-                  <h2>{item.q}</h2>
+                  <h3>{item.q}</h3>
                   <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +190,8 @@ export default function FooterSection() {
             {t.footer.cta_desc}
           </p>
           <a
-            href="https://wa.me/6285342867522"
+            href={generalWhatsAppUrl}
+            aria-label="Tanyakan produk dan pemesanan BIO ATAMA melalui WhatsApp"
             className="inline-block bg-white text-primary font-bold text-lg px-8 py-4 rounded-full"
           >
             {t.footer.cta_button}
@@ -259,7 +261,7 @@ export default function FooterSection() {
                 >
                   <Image
                     src={p.src}
-                    alt={p.name}
+                    alt={`Logo ${p.name} partner BIO ATAMA`}
                     fill
                     className="object-contain object-left"
                     sizes="(max-width: 768px) 150px, 200px"

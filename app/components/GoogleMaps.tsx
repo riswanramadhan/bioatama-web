@@ -24,6 +24,7 @@ export default function GoogleMaps() {
         {/* Google Maps Embed */}
         <div className="w-full rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up">
           <iframe
+            title="Lokasi BIO ATAMA di Moncongloe Lappara, Kabupaten Maros"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.592790719481!2d119.539648!3d-5.169015100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbee5187416a8cb%3A0x7795fbf6357e3652!2sBIO%20ATAMA!5e0!3m2!1sid!2sid!4v1768741236295!5m2!1sid!2sid"
             width="100%"
             height="500"

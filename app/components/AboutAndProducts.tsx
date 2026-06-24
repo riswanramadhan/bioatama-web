@@ -4,6 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext"; // Import context
+import {
+  greenProductWhatsAppUrl,
+  purpleProductWhatsAppUrl,
+} from "@/utils/whatsapp";
 
 export default function AboutAndProducts() {
   const { t } = useLanguage(); // Ambil data terjemahan
@@ -27,9 +31,9 @@ export default function AboutAndProducts() {
   <div className="container mx-auto px-4">
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div data-aos="fade-right">
-        <h3 className="text-2xl font-bold mb-6 text-gray-800">
+        <h2 className="text-2xl font-bold mb-6 text-gray-800">
           {t.about.benefits_title}
-        </h3>
+        </h2>
         <div className="grid gap-4">
           {/* Mapping benefits dari file translation */}
           {t.about.benefits.map((item, i) => (
@@ -48,18 +52,20 @@ export default function AboutAndProducts() {
         <div className="relative h-96 rounded-2xl overflow-hidden shadow-lg">
           <Image
             src="/images/product-section.jpg"
-            alt="Detail Bio Atama"
+            alt="Detail produk BIO ATAMA herbal alami berbahan karang laut"
             fill
             className="object-cover"
+            sizes="(max-width: 767px) 100vw, 50vw"
           />
         </div>
 
         <div className="relative h-96 rounded-2xl overflow-hidden shadow-lg">
           <Image
             src="/images/tambahan-foto-manfaat.jpg"
-            alt="Manfaat Bio Atama"
+            alt="Informasi produk herbal karang laut BIO ATAMA"
             fill
             className="object-cover"
+            sizes="(max-width: 767px) 100vw, 50vw"
           />
         </div>
       </div>
@@ -79,9 +85,9 @@ export default function AboutAndProducts() {
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             
             {/* Card 1: Ekstra (Ungu) */}
-            <div className="bg-white rounded-3xl p-6 shadow-xl border-2 border-purple-100 hover:border-primary transition-colors flex flex-col" data-aos="fade-up" data-aos-delay="0">
+            <div id="produk-ekstra-ungu" className="bg-white rounded-3xl p-6 shadow-xl border-2 border-purple-100 hover:border-primary transition-colors flex flex-col" data-aos="fade-up" data-aos-delay="0">
               <div className="relative h-64 w-full mb-6 rounded-2xl overflow-hidden bg-purple-50">
-                <Image src="/images/product-purple.jpg" alt="Bio Atama Ungu" fill className="object-cover" />
+                <Image src="/images/product-purple.jpg" alt="BIO ATAMA Kemasan Ekstra Ungu" fill className="object-cover" sizes="(max-width: 767px) 100vw, 50vw" />
                 <div className="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
                     {t.products.purple.badge}
                 </div>
@@ -92,16 +98,16 @@ export default function AboutAndProducts() {
                 <p className="text-3xl font-extrabold text-primary mb-4">
                     {t.products.purple.price} <span className="text-sm font-normal text-gray-400">{t.products.purple.unit}</span>
                 </p>
-                <Link href="https://wa.me/6285342867522?text=Halo%20Admin,%20saya%20mau%20order%20Bio%20Atama%20Kemasan%20Ungu" className="block w-full py-3 bg-primary text-white text-center font-bold rounded-xl hover:bg-primary-hover transition-colors">
+                <Link href={purpleProductWhatsAppUrl} aria-label="Pesan BIO ATAMA Kemasan Ekstra Ungu melalui WhatsApp" className="block w-full py-3 bg-primary text-white text-center font-bold rounded-xl hover:bg-primary-hover transition-colors">
                   {t.products.cta}
                 </Link>
               </div>
             </div>
 
             {/* Card 2: Ekonomis (Hijau) */}
-            <div className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:border-natural transition-colors flex flex-col" data-aos="fade-up" data-aos-delay="200">
+            <div id="produk-ekonomis-hijau" className="bg-white rounded-3xl p-6 shadow-lg border border-gray-100 hover:border-natural transition-colors flex flex-col" data-aos="fade-up" data-aos-delay="200">
               <div className="relative h-64 w-full mb-6 rounded-2xl overflow-hidden bg-green-50">
-                <Image src="/images/product-green.jpg" alt="Bio Atama Hijau" fill className="object-cover" />
+                <Image src="/images/product-green.jpg" alt="BIO ATAMA Kemasan Ekonomis Hijau" fill className="object-cover" sizes="(max-width: 767px) 100vw, 50vw" />
                 <div className="absolute top-4 right-4 bg-natural text-white text-xs font-bold px-3 py-1 rounded-full">
                     {t.products.green.badge}
                 </div>
@@ -112,7 +118,7 @@ export default function AboutAndProducts() {
                 <p className="text-3xl font-extrabold text-natural mb-4">
                     {t.products.green.price} <span className="text-sm font-normal text-gray-400">{t.products.green.unit}</span>
                 </p>
-                <Link href="https://wa.me/6285342867522?text=Halo%20Admin,%20saya%20mau%20order%20Bio%20Atama%20Kemasan%20Ekonomis" className="block w-full py-3 bg-natural text-white text-center font-bold rounded-xl hover:bg-natural-dark transition-colors">
+                <Link href={greenProductWhatsAppUrl} aria-label="Pesan BIO ATAMA Kemasan Ekonomis Hijau melalui WhatsApp" className="block w-full py-3 bg-natural text-white text-center font-bold rounded-xl hover:bg-natural-dark transition-colors">
                   {t.products.cta}
                 </Link>
               </div>
