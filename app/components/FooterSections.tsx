@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ChevronDown, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { generalWhatsAppUrl } from "@/utils/whatsapp";
 
@@ -143,33 +144,20 @@ export default function FooterSection() {
   return (
     <footer>
       {/* FAQ SECTION */}
-      <section id="faq" className="py-20 bg-gray-50">
+      <section id="faq" className="py-20 md:py-28 bg-[#fbfafc]">
         <div className="container mx-auto px-4 max-w-3xl">
-          <h2 className="text-3xl font-bold text-center mb-10">
+          <div className="text-center mb-10 md:mb-12"><span className="eyebrow justify-center mb-3">{language === "en" ? "Information" : "Informasi"}</span><h2 className="text-3xl md:text-4xl font-extrabold tracking-[-.04em] text-gray-900">
             {t.footer.faq_title}
-          </h2>
+          </h2></div>
           <div className="space-y-4">
             {faqs.map((item, i) => (
               <details
                 key={i}
-                className="group bg-white rounded-xl shadow-sm p-4 [&_summary::-webkit-details-marker]:hidden"
+                className="group bg-white rounded-2xl border border-gray-100 shadow-[0_5px_18px_rgba(54,39,77,.05)] p-5 [&_summary::-webkit-details-marker]:hidden open:border-purple-200 open:shadow-[0_10px_24px_rgba(90,60,140,.08)] transition-all"
               >
                 <summary className="flex cursor-pointer items-center justify-between gap-1.5 text-gray-900 font-bold">
                   <h3>{item.q}</h3>
-                  <span className="shrink-0 rounded-full bg-white p-1.5 text-gray-900 sm:p-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="size-5 shrink-0 transition duration-300 group-open:-rotate-180"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
+                  <span className="shrink-0 rounded-full bg-purple-50 p-2 text-primary"><ChevronDown className="size-4 shrink-0 transition duration-300 group-open:-rotate-180" /></span>
                 </summary>
                 <p className="mt-4 leading-relaxed text-gray-700">
                   {item.a}
@@ -181,9 +169,10 @@ export default function FooterSection() {
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-20 bg-gradient-to-r from-primary to-natural text-white text-center">
+      <section className="relative isolate overflow-hidden py-20 md:py-24 bg-gradient-to-br from-[#7650ce] via-primary to-[#09966f] text-white text-center">
+        <div className="absolute -top-28 left-[10%] h-72 w-72 rounded-full bg-white/15 blur-3xl -z-10"/><div className="absolute -bottom-28 right-[10%] h-72 w-72 rounded-full bg-emerald-200/20 blur-3xl -z-10"/>
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold tracking-[-.04em] mb-5">
             {t.footer.cta_title}
           </h2>
           <p className="text-lg md:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
@@ -192,9 +181,9 @@ export default function FooterSection() {
           <a
             href={generalWhatsAppUrl}
             aria-label="Tanyakan produk dan pemesanan BIO ATAMA melalui WhatsApp"
-            className="inline-block bg-white text-primary font-bold text-lg px-8 py-4 rounded-full"
+            className="inline-flex items-center gap-2 bg-white text-primary font-bold text-lg px-7 py-3.5 rounded-full shadow-xl shadow-purple-950/20 hover:-translate-y-0.5 transition-transform"
           >
-            {t.footer.cta_button}
+            <MessageCircle size={19}/>{t.footer.cta_button}
           </a>
         </div>
       </section>
@@ -202,11 +191,11 @@ export default function FooterSection() {
       {/* MAIN FOOTER */}
       <div
         id="footer"
-        className="bg-gray-900 text-gray-300 py-12 border-t border-gray-800"
+        className="bg-[#1f1b28] text-gray-300 py-14 border-t border-white/10"
       >
         <div className="container mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div data-aos="fade-up" data-aos-delay="0">
-            <h3 className="text-white text-xl font-bold mb-4">BIO ATAMA</h3>
+            <h3 className="text-white text-xl font-extrabold tracking-[-.04em] mb-4">BIO <span className="text-purple-300">ATAMA</span></h3>
             <p className="text-sm leading-relaxed mb-4">
               {language === "en"
                 ? "Natural herbal solution from the deep sea for the health and harmony of Indonesian women."

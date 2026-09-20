@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function SupportedBy() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const partners = [
     { name: "DekatLokal", src: "/images/partners/dekat-lokal.png", href: "https://dekatlokal.com/" },
@@ -14,11 +14,12 @@ export default function SupportedBy() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50 border-b border-gray-100">
+    <section className="py-16 md:py-20 bg-[#fbfafc] border-y border-purple-50">
       <div className="container mx-auto px-4 text-center">
         
         <div data-aos="fade-up">
-          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+          <span className="eyebrow justify-center mb-3">{language === "en" ? "Collaboration" : "Kolaborasi"}</span>
+          <h2 className="text-2xl md:text-3xl font-extrabold tracking-[-.035em] text-gray-900 mb-4">
             {t.collaboration.title}
           </h2>
           <p className="text-gray-500 text-sm md:text-base max-w-3xl mx-auto leading-relaxed mb-8">
@@ -28,16 +29,14 @@ export default function SupportedBy() {
 
         {/* LOGO SECTION - UKURAN JUMBO */}
         <div 
-          className="flex flex-wrap justify-center items-center gap-8 md:gap-24"
+          className="flex flex-wrap justify-center items-center gap-3 md:gap-5 max-w-5xl mx-auto"
           data-aos="fade-up" 
           data-aos-delay="100"
         >
           {partners.map((partner, index) => (
             <div 
               key={index} 
-              // UPDATE: w-52 (Mobile) & w-80 (Desktop) -> Sangat Besar
-              // h-28 agar logo punya ruang vertikal yang cukup
-              className="relative w-52 md:w-64 h-28 md:h-44 flex items-center justify-center grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="relative w-[calc(50%-0.5rem)] sm:w-52 md:w-60 h-24 md:h-28 flex items-center justify-center rounded-2xl border border-gray-100 bg-white px-5 grayscale opacity-80 hover:grayscale-0 hover:opacity-100 hover:border-purple-200 hover:shadow-lg transition-all duration-500"
             >
               {partner.href ? (
                 <Link href={partner.href} target="_blank" rel="noopener noreferrer" aria-label="Kunjungi website DekatLokal" className="relative block h-full w-full">

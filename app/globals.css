@@ -5,8 +5,30 @@
 /* Opsional: Style scrollbar agar lebih cantik */
 html {
   scroll-behavior: smooth;
+  background: #fbfafc;
 }
 
 body {
-  background-color: #F9FAFB; /* Sesuai warna background di config */
+  background-color: #fbfafc;
+  color: #25222b;
+}
+
+::selection { background: #ddd6fe; color: #4c1d95; }
+
+/* A calm, tactile surface system for the page. */
+.section-shell { position: relative; isolation: isolate; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: .55rem;
+  color: #7252be; font-size: .7rem; font-weight: 800;
+  letter-spacing: .16em; text-transform: uppercase;
+}
+.eyebrow::before { content: ""; width: 1.8rem; height: 1px; background: currentColor; opacity: .7; }
+.soft-grid {
+  background-image: linear-gradient(rgba(139,92,246,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.lift-card { transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, border-color .35s ease; }
+.lift-card:hover { transform: translateY(-6px); }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
