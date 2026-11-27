@@ -4,7 +4,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 86400,
+    // Cache hasil optimasi 31 hari (sebelumnya 1 hari) supaya gambar yang sama
+    // tidak ditransformasi ulang dan menghabiskan kuota Vercel Image Optimization.
+    minimumCacheTTL: 2678400,
+    // Hemat kuota Vercel Image Optimization: 7 ukuran saja di srcset
+    // (default 16 ukuran per gambar). Semuanya subset dari ukuran default,
+    // jadi cache yang sudah ada tetap terpakai.
+    deviceSizes: [640, 828, 1200, 1920],
+    imageSizes: [128, 256, 384],
   },
   async redirects() {
     return [
